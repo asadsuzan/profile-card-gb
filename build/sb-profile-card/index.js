@@ -1263,7 +1263,8 @@ const ProfileCard = ({
   profile = {},
   onNameChange,
   onCountryChange,
-  onTitleChange
+  onTitleChange,
+  onFollowChange
 }) => {
   const {
     badgeTxt,
@@ -1305,12 +1306,17 @@ const ProfileCard = ({
         children: title
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "buttons",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-          className: "primary",
-          children: "Message"
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          href: messageBtn?.url || "#",
+          target: "_blank",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            className: "primary",
+            children: messageBtn.txt || ""
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
           className: "primary ghost",
-          children: "Following"
+          onClick: onFollowChange,
+          children: followBtn.txt
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "skills",
@@ -1378,7 +1384,7 @@ const SbRichText = ({
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and front-end developer","messageBtn":{"txt":"message","url":""},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -1401,8 +1407,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! immer */ "./node_modules/immer/dist/immer.mjs");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -1417,7 +1426,7 @@ function Edit({
   const {
     profile
   } = attributes || {};
-
+  const [isFollowing, setIsFollowing] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false);
   // handle name 
   const handleName = newName => {
     setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
@@ -1438,17 +1447,58 @@ function Edit({
       draft.profile.title = newTitle;
     }));
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-      draggable: false
-    }),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_common_ProfileCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      isBackEnd: true,
-      profile: profile,
-      onNameChange: handleName,
-      onCountryChange: handleCountry,
-      onTitleChange: handleTitle
-    })
+
+  // handle message Button text
+  const handleMsgBtnTxt = newTxt => {
+    setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+      draft.profile.messageBtn.txt = newTxt;
+    }));
+  };
+  // handle message url 
+  const handleMsgBtnUrl = newUrl => {
+    setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+      draft.profile.messageBtn.url = newUrl;
+    }));
+  };
+
+  // handle follow 
+  const handleFollow = () => {
+    setIsFollowing(state => !state);
+    const txt = isFollowing ? "follow" : "following";
+    setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+      draft.profile.followBtn.txt = txt;
+    }));
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      group: "styles"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      group: "settings",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        title: "Message Button",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+          label: "Text",
+          value: profile.messageBtn.txt || "",
+          onChange: handleMsgBtnTxt
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+          label: "Url",
+          value: profile.messageBtn.url || "#",
+          onChange: handleMsgBtnUrl
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+        draggable: false
+      }),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_common_ProfileCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        isBackEnd: true,
+        profile: profile,
+        onNameChange: handleName,
+        onCountryChange: handleCountry,
+        onTitleChange: handleTitle,
+        onFollowChange: handleFollow
+      })
+    })]
   });
 }
 
@@ -1563,6 +1613,16 @@ module.exports = window["wp"]["components"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
 
 /***/ }),
 

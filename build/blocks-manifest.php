@@ -34,7 +34,7 @@ return array(
 					'title' => 'User interface designer and front-end developer',
 					'messageBtn' => array(
 						'txt' => 'message',
-						'url' => ''
+						'url' => '#'
 					),
 					'followBtn' => array(
 						'txt' => 'Follow',

@@ -1,6 +1,6 @@
 import SbRichText from '../modules/SbRichText'
 
-const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange, onCountryChange, onTitleChange }) => {
+const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange, onCountryChange, onTitleChange, onFollowChange }) => {
 
     const { badgeTxt, imgUrl, name, country, title, messageBtn, followBtn, skills } = profile
     return <>
@@ -18,11 +18,16 @@ const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange, onCountryCh
             }
 
             <div className="buttons">
-                <button className="primary">
-                    Message
-                </button>
-                <button className="primary ghost">
-                    Following
+                <a href={messageBtn?.url || "#"} target='_blank'>
+                    <button className="primary">
+                        {messageBtn.txt || ""}
+                    </button>
+                </a>
+
+                <button className="primary ghost" onClick={onFollowChange}>
+                    {
+                        followBtn.txt
+                    }
                 </button>
             </div>
             <div className="skills">

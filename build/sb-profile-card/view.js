@@ -55,7 +55,8 @@ const ProfileCard = ({
   profile = {},
   onNameChange,
   onCountryChange,
-  onTitleChange
+  onTitleChange,
+  onFollowChange
 }) => {
   const {
     badgeTxt,
@@ -97,12 +98,17 @@ const ProfileCard = ({
         children: title
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "buttons",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-          className: "primary",
-          children: "Message"
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+          href: messageBtn?.url || "#",
+          target: "_blank",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            className: "primary",
+            children: messageBtn.txt || ""
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
           className: "primary ghost",
-          children: "Following"
+          onClick: onFollowChange,
+          children: followBtn.txt
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "skills",
