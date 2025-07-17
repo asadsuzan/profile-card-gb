@@ -116,7 +116,9 @@ export default function Edit({ attributes, setAttributes }) {
 
 										}} >
 										<Button variant='secondary' size='small' icon={"admin-page"} onClick={() => handleCopySkill(skill, idx)} />
-										{profile?.skills.length > 1 && <Button variant='tertiary' size='small' icon={"remove"} onClick={() => handleDeleteSkill(idx)} />}
+										{profile?.skills.length > 1 && <Button variant='tertiary' size='small' icon={"remove"} onClick={() => handleDeleteSkill(idx)} style={{
+											color: "red"
+										}} />}
 									</div>
 								</div>
 							</>

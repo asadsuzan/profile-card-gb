@@ -1539,7 +1539,10 @@ function Edit({
                   variant: "tertiary",
                   size: "small",
                   icon: "remove",
-                  onClick: () => handleDeleteSkill(idx)
+                  onClick: () => handleDeleteSkill(idx),
+                  style: {
+                    color: "red"
+                  }
                 })]
               })]
             }, `skill-${idx}`)
