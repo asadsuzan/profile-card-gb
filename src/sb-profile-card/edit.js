@@ -14,12 +14,19 @@ export default function Edit({ attributes, setAttributes }) {
 		}))
 	}
 
+	// handle country 
+	const handleCountry = (newCountry) => {
+		setAttributes(produce(attributes, draft => {
+			draft.profile.country = newCountry
+		}))
+	}
+
 	return (
 		<div {...useBlockProps({
 			draggable: false,
 
 		})}>
-			<ProfileCard isBackEnd={true} profile={profile} onNameChange={handleName} />
+			<ProfileCard isBackEnd={true} profile={profile} onNameChange={handleName} onCountryChange={handleCountry} />
 		</div>
 	);
 }

@@ -1,6 +1,6 @@
 import SbRichText from '../modules/SbRichText'
 
-const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange }) => {
+const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange, onCountryChange }) => {
 
     const { badgeTxt, imgUrl, name, country, title, messageBtn, followBtn, skills } = profile
     return <>
@@ -10,8 +10,10 @@ const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange }) => {
             {
                 isBackEnd ? <SbRichText content={name} tagName='h3' onContentChange={onNameChange} /> : <h3>{name}</h3>
             }
+            {
+                isBackEnd ? <SbRichText content={country} tagName='h6' onContentChange={onCountryChange} /> : <h6>{country}</h6>
+            }
 
-            <h6>New York</h6>
             <p>User interface designer and <br /> front-end developer</p>
             <div className="buttons">
                 <button className="primary">

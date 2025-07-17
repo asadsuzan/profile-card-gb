@@ -1261,7 +1261,8 @@ __webpack_require__.r(__webpack_exports__);
 const ProfileCard = ({
   isBackEnd = true,
   profile = {},
-  onNameChange
+  onNameChange,
+  onCountryChange
 }) => {
   const {
     badgeTxt,
@@ -1289,8 +1290,12 @@ const ProfileCard = ({
         onContentChange: onNameChange
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
         children: name
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
-        children: "New York"
+      }), isBackEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_modules_SbRichText__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        content: country,
+        tagName: "h6",
+        onContentChange: onCountryChange
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
+        children: country
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
         children: ["User interface designer and ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), " front-end developer"]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -1414,6 +1419,13 @@ function Edit({
       draft.profile.name = newName;
     }));
   };
+
+  // handle country 
+  const handleCountry = newCountry => {
+    setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+      draft.profile.country = newCountry;
+    }));
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
       draggable: false
@@ -1421,7 +1433,8 @@ function Edit({
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_common_ProfileCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
       isBackEnd: true,
       profile: profile,
-      onNameChange: handleName
+      onNameChange: handleName,
+      onCountryChange: handleCountry
     })
   });
 }
