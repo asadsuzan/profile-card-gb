@@ -31,10 +31,7 @@ return array(
 					'imgUrl' => '',
 					'name' => 'jon does',
 					'country' => 'New York',
-					'title' => array(
-						'User interface designer',
-						'front-end developer'
-					),
+					'title' => 'User interface designer and front-end developer',
 					'messageBtn' => array(
 						'txt' => 'message',
 						'url' => ''

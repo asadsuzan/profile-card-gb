@@ -54,7 +54,8 @@ const ProfileCard = ({
   isBackEnd = true,
   profile = {},
   onNameChange,
-  onCountryChange
+  onCountryChange,
+  onTitleChange
 }) => {
   const {
     badgeTxt,
@@ -88,8 +89,12 @@ const ProfileCard = ({
         onContentChange: onCountryChange
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h6", {
         children: country
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
-        children: ["User interface designer and ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), " front-end developer"]
+      }), isBackEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_modules_SbRichText__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        content: profile?.title,
+        tagName: "p",
+        onContentChange: onTitleChange
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        children: title
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "buttons",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {

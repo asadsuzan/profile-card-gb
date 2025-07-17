@@ -21,12 +21,24 @@ export default function Edit({ attributes, setAttributes }) {
 		}))
 	}
 
+	// handle title 
+	const handleTitle = (newTitle) => {
+		setAttributes(produce(attributes, draft => {
+			draft.profile.title = newTitle
+		}))
+	}
 	return (
 		<div {...useBlockProps({
 			draggable: false,
 
 		})}>
-			<ProfileCard isBackEnd={true} profile={profile} onNameChange={handleName} onCountryChange={handleCountry} />
+			<ProfileCard
+				isBackEnd={true}
+				profile={profile}
+				onNameChange={handleName}
+				onCountryChange={handleCountry}
+				onTitleChange={handleTitle}
+			/>
 		</div>
 	);
 }

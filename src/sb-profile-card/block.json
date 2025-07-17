@@ -26,10 +26,7 @@
 				"imgUrl": "",
 				"name": "jon does",
 				"country": "New York",
-				"title": [
-					"User interface designer",
-					"front-end developer"
-				],
+				"title": "User interface designer and front-end developer",
 				"messageBtn": {
 					"txt": "message",
 					"url": ""
