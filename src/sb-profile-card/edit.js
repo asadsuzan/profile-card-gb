@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps, } from '@wordpress/block-editor';
 import './editor.scss';
 import ProfileCard from '../components/common/ProfileCard';
-import { PanelBody, TextControl } from "@wordpress/components"
+import { Button, ButtonGroup, PanelBody, TextControl } from "@wordpress/components"
 import { produce } from "immer"
 import { useState } from 'react';
 export default function Edit({ attributes, setAttributes }) {
@@ -52,19 +52,79 @@ export default function Edit({ attributes, setAttributes }) {
 
 	}
 
+	// handle edit skill
+	const handleEditSkill = (newSkill, idx) => {
+		setAttributes(produce(attributes, draft => {
+			draft.profile.skills[idx] = newSkill
+		}))
+	}
 
+	//  handle add new skill
+	const handleAddNewSkill = () => {
+		setAttributes(produce(attributes, draft => {
+			draft.profile.skills.push("new skill added")
+		}))
+	}
+	// handle delete skill
+	const handleDeleteSkill = (idx) => {
+		if (profile?.skills.length > 1) {
+			setAttributes(produce(attributes, draft => {
+				draft.profile.skills.splice(idx, 1)
+			}))
+		}
+	}
+	// handle copy skill 
+	const handleCopySkill = (txt, idx) => {
+		setAttributes(produce(attributes, draft => {
+			draft.profile.skills.splice(idx, 0, txt)
+		}))
+	}
 	return (
 		<>
 			{/* // settings  */}
 			<InspectorControls group='styles'></InspectorControls>
 			<InspectorControls group='settings'>
 
+
+				{/* message button settings  */}
 				<PanelBody title='Message Button'>
 					<TextControl label="Text" value={profile.messageBtn.txt || ""} onChange={handleMsgBtnTxt} />
 					<TextControl label="Url" value={profile.messageBtn.url || "#"} onChange={handleMsgBtnUrl} />
-
 				</PanelBody>
-			</InspectorControls>
+
+				{/* skill section settings  */}
+				<PanelBody title='Skill section'>
+					<h3>Total Skills: {profile?.skills.length}</h3>
+					{
+						profile?.skills.map((skill, idx) => {
+							return <>
+
+								<div style={{ position: "relative" }} key={`skill-${idx}`}>
+									<TextControl value={skill || ""} onChange={(newSkill) => handleEditSkill(newSkill, idx)} style={{
+										paddingRight: "70px"
+									}} />
+									<div
+										style={{
+											position: "absolute",
+											right: "10px",
+											top: "0",
+											bottom: "0",
+											display: "flex",
+											justifyContent: "center",
+											alignItems: "center",
+											gap: "5px"
+
+										}} >
+										<Button variant='secondary' size='small' icon={"admin-page"} onClick={() => handleCopySkill(skill, idx)} />
+										{profile?.skills.length > 1 && <Button variant='tertiary' size='small' icon={"remove"} onClick={() => handleDeleteSkill(idx)} />}
+									</div>
+								</div>
+							</>
+						})
+					}
+					<Button variant='primary' icon={"database-add"} size='compact' onClick={handleAddNewSkill}>Add skill</Button>
+				</PanelBody>
+			</InspectorControls >
 
 
 

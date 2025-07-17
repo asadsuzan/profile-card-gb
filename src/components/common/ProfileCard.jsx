@@ -33,13 +33,12 @@ const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange, onCountryCh
             <div className="skills">
                 <h6>Skills</h6>
                 <ul>
-                    <li>UI / UX</li>
-                    <li>Front End Development</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                    <li>Node</li>
+                    {
+                        skills?.length && skills.map((skill, idx) => {
+                            return <li key={`sb-user-skill${idx}`}>{skill}</li>
+                        })
+                    }
+
                 </ul>
             </div>
         </div>
