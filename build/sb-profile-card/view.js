@@ -54,6 +54,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const ProfileCard = ({
+  options,
   isBackEnd = true,
   profile = {},
   onNameChange,
@@ -61,6 +62,7 @@ const ProfileCard = ({
   onTitleChange,
   onFollowChange
 }) => {
+  console.log(options);
   const [isFollowing, setIsFollowing] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const handleFollow = () => {
     if (isBackEnd) {
@@ -82,7 +84,7 @@ const ProfileCard = ({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "card-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+      children: [options?.isShowBadge && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
         className: "pro",
         children: "PRO"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {

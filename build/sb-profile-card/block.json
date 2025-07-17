@@ -41,6 +41,12 @@
           "HTML"
         ]
       }
+    },
+    "options": {
+      "type": "object",
+      "default": {
+        "isShowBadge": true
+      }
     }
   },
   "textdomain": "sb-profile-card",

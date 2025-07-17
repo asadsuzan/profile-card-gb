@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import SbRichText from '../modules/SbRichText'
 
-const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange, onCountryChange, onTitleChange, onFollowChange }) => {
-
+const ProfileCard = ({ options, isBackEnd = true, profile = {}, onNameChange, onCountryChange, onTitleChange, onFollowChange }) => {
+    console.log(options);
     const [isFollowing, setIsFollowing] = useState(false)
 
     const handleFollow = () => {
@@ -15,7 +15,9 @@ const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange, onCountryCh
     const { badgeTxt, imgUrl, name, country, title, messageBtn, followBtn, skills } = profile
     return <>
         <div className="card-container">
-            <span className="pro">PRO</span>
+            {
+                options?.isShowBadge && <span className="pro">PRO</span>
+            }
             <img className="round" height={"100%"} width={"100%"} src={profile?.imgUrl || "https://randomuser.me/api/portraits/women/79.jpg"} alt="user" />
             {
                 isBackEnd ? <SbRichText content={name} tagName='h3' onContentChange={onNameChange} /> : <h3>{name}</h3>

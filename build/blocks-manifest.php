@@ -46,6 +46,12 @@ return array(
 						'HTML'
 					)
 				)
+			),
+			'options' => array(
+				'type' => 'object',
+				'default' => array(
+					'isShowBadge' => true
+				)
 			)
 		),
 		'textdomain' => 'sb-profile-card',

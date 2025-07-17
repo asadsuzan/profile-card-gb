@@ -2,11 +2,11 @@ import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps, MediaUpload } from '@wordpress/block-editor';
 import './editor.scss';
 import ProfileCard from '../components/common/ProfileCard';
-import { Button, ButtonGroup, PanelBody, TextControl } from "@wordpress/components"
+import { Button, ButtonGroup, FormToggle, PanelBody, TextControl, ToggleControl } from "@wordpress/components"
 import { produce } from "immer"
 import { useState } from 'react';
 export default function Edit({ attributes, setAttributes }) {
-	const { profile } = attributes || {}
+	const { profile, options } = attributes || {}
 	const [isFollowing, setIsFollowing] = useState(false)
 	// handle name 
 	const handleName = (newName) => {
@@ -86,6 +86,13 @@ export default function Edit({ attributes, setAttributes }) {
 			draft.profile.imgUrl = newUrl
 		}))
 	}
+
+	// handle show badge 
+	const handleShowBadge = () => {
+		setAttributes(produce(attributes, draft => {
+			draft.options.isShowBadge = draft.options.isShowBadge ? false : true
+		}))
+	}
 	return (
 		<>
 			{/* // settings  */}
@@ -160,6 +167,12 @@ export default function Edit({ attributes, setAttributes }) {
 					}
 					<Button variant='primary' icon={"database-add"} size='compact' onClick={handleAddNewSkill}>Add skill</Button>
 				</PanelBody>
+
+
+				{/* options  */}
+				<PanelBody title='options'>
+					<ToggleControl label="show badge" checked={!!options.isShowBadge} onChange={handleShowBadge} />
+				</PanelBody>
 			</InspectorControls >
 
 
@@ -175,6 +188,7 @@ export default function Edit({ attributes, setAttributes }) {
 					onCountryChange={handleCountry}
 					onTitleChange={handleTitle}
 					onFollowChange={handleFollow}
+					options={options}
 
 				/>
 			</div>
