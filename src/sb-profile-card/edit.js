@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { InspectorControls, useBlockProps, } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps, MediaUpload } from '@wordpress/block-editor';
 import './editor.scss';
 import ProfileCard from '../components/common/ProfileCard';
 import { Button, ButtonGroup, PanelBody, TextControl } from "@wordpress/components"
@@ -79,11 +79,45 @@ export default function Edit({ attributes, setAttributes }) {
 			draft.profile.skills.splice(idx, 0, txt)
 		}))
 	}
+
+	// handle avatar url 
+	const handleAvatarUrl = (newUrl) => {
+		setAttributes(produce(attributes, draft => {
+			draft.profile.imgUrl = newUrl
+		}))
+	}
 	return (
 		<>
 			{/* // settings  */}
 			<InspectorControls group='styles'></InspectorControls>
 			<InspectorControls group='settings'>
+
+				<PanelBody title="Avatar" initialOpen={false}>
+					<MediaUpload
+						onSelect={(media) => {
+							handleAvatarUrl(media.url)
+						}}
+						multiple={false}
+						render={({ open }) => (
+							<div style={{
+								display: "flex",
+								flexDirection: "column",
+								alignItems: "center",
+								gap: "5px"
+							}}>
+								<img height={"50px"} width={"100px"} alt='user' src={profile.imgUrl} />
+								<Button style={{
+									textAlign: "Center"
+								}} variant='primary' icon={"upload"} size='small' onClick={open}>
+									upload
+								</Button>
+								<span>Or</span>
+								<TextControl label="add url" value={profile?.imgUrl} onChange={(newUrl) => handleAvatarUrl(newUrl)} />
+
+							</div>
+						)}
+					/>
+				</PanelBody>
 
 
 				{/* message button settings  */}
