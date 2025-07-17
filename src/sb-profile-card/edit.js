@@ -1,14 +1,25 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, } from '@wordpress/block-editor';
 import './editor.scss';
 import ProfileCard from '../components/common/ProfileCard';
+import { } from "@wordpress/components"
+import { produce } from "immer"
+export default function Edit({ attributes, setAttributes }) {
+	const { profile } = attributes || {}
 
-export default function Edit() {
+	// handle name 
+	const handleName = (newName) => {
+		setAttributes(produce(attributes, draft => {
+			draft.profile.name = newName
+		}))
+	}
+
 	return (
 		<div {...useBlockProps({
-			draggable: false
+			draggable: false,
+
 		})}>
-			<ProfileCard />
+			<ProfileCard isBackEnd={true} profile={profile} onNameChange={handleName} />
 		</div>
 	);
 }

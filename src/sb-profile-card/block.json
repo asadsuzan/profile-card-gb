@@ -9,13 +9,40 @@
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"align": [
+			"center",
+			"full",
+			"wide",
+			"left",
+			"right"
+		]
 	},
 	"attributes": {
 		"profile": {
 			"type": "object",
 			"default": {
-				"name": "jon doe"
+				"badgeTxt": "pro",
+				"imgUrl": "",
+				"name": "jon does",
+				"country": "New York",
+				"title": [
+					"User interface designer",
+					"front-end developer"
+				],
+				"messageBtn": {
+					"txt": "message",
+					"url": ""
+				},
+				"followBtn": {
+					"txt": "Follow",
+					"url": ""
+				},
+				"skills": [
+					"UI / UX",
+					"Front End Development",
+					"HTML"
+				]
 			}
 		}
 	},

@@ -1,9 +1,16 @@
-const ProfileCard = () => {
+import SbRichText from '../modules/SbRichText'
+
+const ProfileCard = ({ isBackEnd = true, profile = {}, onNameChange }) => {
+
+    const { badgeTxt, imgUrl, name, country, title, messageBtn, followBtn, skills } = profile
     return <>
         <div className="card-container">
             <span className="pro">PRO</span>
             <img className="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
-            <h3>Ricky Park</h3>
+            {
+                isBackEnd ? <SbRichText content={name} tagName='h3' onContentChange={onNameChange} /> : <h3>{name}</h3>
+            }
+
             <h6>New York</h6>
             <p>User interface designer and <br /> front-end developer</p>
             <div className="buttons">

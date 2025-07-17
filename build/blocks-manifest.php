@@ -14,13 +14,40 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'align' => array(
+				'center',
+				'full',
+				'wide',
+				'left',
+				'right'
+			)
 		),
 		'attributes' => array(
 			'profile' => array(
 				'type' => 'object',
 				'default' => array(
-					'name' => 'jon doe'
+					'badgeTxt' => 'pro',
+					'imgUrl' => '',
+					'name' => 'jon does',
+					'country' => 'New York',
+					'title' => array(
+						'User interface designer',
+						'front-end developer'
+					),
+					'messageBtn' => array(
+						'txt' => 'message',
+						'url' => ''
+					),
+					'followBtn' => array(
+						'txt' => 'Follow',
+						'url' => ''
+					),
+					'skills' => array(
+						'UI / UX',
+						'Front End Development',
+						'HTML'
+					)
 				)
 			)
 		),

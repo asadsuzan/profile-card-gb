@@ -1,4 +1,5 @@
 import { createRoot } from 'react-dom/client'
+import ProfileCard from '../components/common/ProfileCard';
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -7,13 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
     roots.forEach((wpRoot) => {
 
         const root = createRoot(wpRoot);
-        const attributes = JSON.parse(wpRoot.dataset.attrs)
-        console.log(attributes);
+        const { profile } = JSON.parse(wpRoot.dataset.attrs)
+
 
         root.render(
             <>
 
-                hello profile cards
+                <ProfileCard isBackEnd={false} profile={profile} />
             </>
 
 
