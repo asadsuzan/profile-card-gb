@@ -169,7 +169,6 @@ const Style = ({
     cardContainer,
     avatar
   } = styles || {};
-  console.log(avatar);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
     dangerouslySetInnerHTML: {
       __html: `

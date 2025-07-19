@@ -45,16 +45,6 @@ p {
   right: 30px;
 }
 
-.card-container .round {
-  border: 1px solid #03BFCB;
-  border-radius: 50%;
-  padding: 7px;
-  height: 170px;
-  width: 170px;
-  -o-object-fit: fill;
-     object-fit: fill;
-}
-
 button.primary {
   background-color: #03BFCB;
   border: 1px solid #03BFCB;

@@ -73,7 +73,7 @@ return array(
 							'color' => '#03BFCB',
 							'style' => 'solid'
 						),
-						'borderRadius' => '50%',
+						'borderRadius' => 50,
 						'padding' => array(
 							'bottom' => 7,
 							'left' => 7,

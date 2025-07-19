@@ -1377,7 +1377,6 @@ const Style = ({
     cardContainer,
     avatar
   } = styles || {};
-  console.log(avatar);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
     dangerouslySetInnerHTML: {
       __html: `
@@ -1457,7 +1456,7 @@ const SbRichText = ({
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true}},"styles":{"type":"object","default":{"cardContainer":{"backgroundColor":" #231E39","borderRadius":5,"boxShadow":" 0px 10px 20px -10px rgba(0,0,0,0.75)","color":"#B3B8CD","paddingTop":"30px","position":"relative","width":"350px","maxWidth":"100%","textAlign":"center"},"avatar":{"border":{"width":"1px","color":"#03BFCB","style":"solid"},"borderRadius":"50%","padding":{"bottom":7,"left":7,"right":7,"top":7},"height":"170px","width":"170px","objectFit":"fill"}}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true}},"styles":{"type":"object","default":{"cardContainer":{"backgroundColor":" #231E39","borderRadius":5,"boxShadow":" 0px 10px 20px -10px rgba(0,0,0,0.75)","color":"#B3B8CD","paddingTop":"30px","position":"relative","width":"350px","maxWidth":"100%","textAlign":"center"},"avatar":{"border":{"width":"1px","color":"#03BFCB","style":"solid"},"borderRadius":50,"padding":{"bottom":7,"left":7,"right":7,"top":7},"height":"170px","width":"170px","objectFit":"fill"}}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 

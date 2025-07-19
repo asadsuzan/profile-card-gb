@@ -1,6 +1,6 @@
 const Style = ({ styles }) => {
     const { cardContainer, avatar } = styles || {}
-    console.log(avatar);
+        ;
     return (
         <style
             dangerouslySetInnerHTML={{
