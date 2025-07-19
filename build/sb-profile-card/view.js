@@ -62,7 +62,6 @@ const ProfileCard = ({
   onTitleChange,
   onFollowChange
 }) => {
-  console.log(options);
   const [isFollowing, setIsFollowing] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const handleFollow = () => {
     if (isBackEnd) {
@@ -98,19 +97,25 @@ const ProfileCard = ({
         tagName: "h3",
         onContentChange: onNameChange
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-        children: name
+        dangerouslySetInnerHTML: {
+          __html: name
+        }
       }), isBackEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_modules_SbRichText__WEBPACK_IMPORTED_MODULE_1__["default"], {
         content: country,
         tagName: "h6",
         onContentChange: onCountryChange
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h6", {
-        children: country
+        dangerouslySetInnerHTML: {
+          __html: country
+        }
       }), isBackEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_modules_SbRichText__WEBPACK_IMPORTED_MODULE_1__["default"], {
         content: profile?.title,
         tagName: "p",
         onContentChange: onTitleChange
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: title
+        dangerouslySetInnerHTML: {
+          __html: title
+        }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "buttons",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
@@ -144,6 +149,65 @@ const ProfileCard = ({
 
 /***/ }),
 
+/***/ "./src/components/common/Style.jsx":
+/*!*****************************************!*\
+  !*** ./src/components/common/Style.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const Style = ({
+  styles
+}) => {
+  const {
+    cardContainer,
+    avatar
+  } = styles || {};
+  console.log(avatar);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
+    dangerouslySetInnerHTML: {
+      __html: `
+                
+            .card-container{
+		            background-color: ${cardContainer.backgroundColor};
+		            border-radius: ${cardContainer.borderRadius}px;
+		            box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+		            color: ${cardContainer.color};
+		            padding-top: ${cardContainer.paddingTop};
+		            position: ${cardContainer.position};
+		            width:${cardContainer.width};
+                    text-align:${cardContainer.textAlign};
+		            max-width: 100%;
+		        
+	
+                }
+             
+            .card-container .round{
+                border-width: ${avatar.border.width};
+                border-style: ${avatar.border.style};
+                border-color: ${avatar.border.color};
+	            border-radius: ${avatar.borderRadius}%;
+	            padding: ${avatar.padding};
+	            height: ${avatar.height};
+	            width: ${avatar.width};
+	            object-fit: ${avatar.objectFit};
+            
+            }
+                
+                `
+    }
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Style);
+
+/***/ }),
+
 /***/ "./src/components/modules/SbRichText.jsx":
 /*!***********************************************!*\
   !*** ./src/components/modules/SbRichText.jsx ***!
@@ -168,7 +232,8 @@ const SbRichText = ({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
     value: content,
     tagName: tagName,
-    onChange: onContentChange
+    onChange: onContentChange,
+    allowedFormats: ['core/bold', 'core/italic']
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SbRichText);
@@ -292,8 +357,10 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _components_common_ProfileCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/common/ProfileCard */ "./src/components/common/ProfileCard.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_common_Style__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/common/Style */ "./src/components/common/Style.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -302,13 +369,18 @@ document.addEventListener('DOMContentLoaded', function () {
   roots.forEach(wpRoot => {
     const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_0__.createRoot)(wpRoot);
     const {
-      profile
+      profile,
+      options,
+      styles
     } = JSON.parse(wpRoot.dataset.attrs);
-    root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_common_ProfileCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_common_Style__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        styles: styles
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_common_ProfileCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
         isBackEnd: false,
-        profile: profile
-      })
+        profile: profile,
+        options: options
+      })]
     }));
   });
 });

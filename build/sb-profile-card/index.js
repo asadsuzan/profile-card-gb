@@ -1270,7 +1270,6 @@ const ProfileCard = ({
   onTitleChange,
   onFollowChange
 }) => {
-  console.log(options);
   const [isFollowing, setIsFollowing] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const handleFollow = () => {
     if (isBackEnd) {
@@ -1306,19 +1305,25 @@ const ProfileCard = ({
         tagName: "h3",
         onContentChange: onNameChange
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-        children: name
+        dangerouslySetInnerHTML: {
+          __html: name
+        }
       }), isBackEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_modules_SbRichText__WEBPACK_IMPORTED_MODULE_1__["default"], {
         content: country,
         tagName: "h6",
         onContentChange: onCountryChange
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h6", {
-        children: country
+        dangerouslySetInnerHTML: {
+          __html: country
+        }
       }), isBackEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_modules_SbRichText__WEBPACK_IMPORTED_MODULE_1__["default"], {
         content: profile?.title,
         tagName: "p",
         onContentChange: onTitleChange
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: title
+        dangerouslySetInnerHTML: {
+          __html: title
+        }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "buttons",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
@@ -1352,6 +1357,65 @@ const ProfileCard = ({
 
 /***/ }),
 
+/***/ "./src/components/common/Style.jsx":
+/*!*****************************************!*\
+  !*** ./src/components/common/Style.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+const Style = ({
+  styles
+}) => {
+  const {
+    cardContainer,
+    avatar
+  } = styles || {};
+  console.log(avatar);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
+    dangerouslySetInnerHTML: {
+      __html: `
+                
+            .card-container{
+		            background-color: ${cardContainer.backgroundColor};
+		            border-radius: ${cardContainer.borderRadius}px;
+		            box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+		            color: ${cardContainer.color};
+		            padding-top: ${cardContainer.paddingTop};
+		            position: ${cardContainer.position};
+		            width:${cardContainer.width};
+                    text-align:${cardContainer.textAlign};
+		            max-width: 100%;
+		        
+	
+                }
+             
+            .card-container .round{
+                border-width: ${avatar.border.width};
+                border-style: ${avatar.border.style};
+                border-color: ${avatar.border.color};
+	            border-radius: ${avatar.borderRadius}%;
+	            padding: ${avatar.padding};
+	            height: ${avatar.height};
+	            width: ${avatar.width};
+	            object-fit: ${avatar.objectFit};
+            
+            }
+                
+                `
+    }
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Style);
+
+/***/ }),
+
 /***/ "./src/components/modules/SbRichText.jsx":
 /*!***********************************************!*\
   !*** ./src/components/modules/SbRichText.jsx ***!
@@ -1376,7 +1440,8 @@ const SbRichText = ({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
     value: content,
     tagName: tagName,
-    onChange: onContentChange
+    onChange: onContentChange,
+    allowedFormats: ['core/bold', 'core/italic']
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SbRichText);
@@ -1389,7 +1454,7 @@ const SbRichText = ({
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true}},"styles":{"type":"object","default":{"cardContainer":{"backgroundColor":" #231E39","borderRadius":5,"boxShadow":" 0px 10px 20px -10px rgba(0,0,0,0.75)","color":"#B3B8CD","paddingTop":"30px","position":"relative","width":"350px","maxWidth":"100%","textAlign":"center"},"avatar":{"border":{"width":"1px","color":"#03BFCB","style":"solid"},"borderRadius":"50%","padding":" 7px","height":"170px","width":"170px","objectFit":"fill"}}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -1414,8 +1479,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! immer */ "./node_modules/immer/dist/immer.mjs");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_common_Style__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/common/Style */ "./src/components/common/Style.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -1430,9 +1497,11 @@ function Edit({
 }) {
   const {
     profile,
-    options
+    options,
+    styles
   } = attributes || {};
   const [isFollowing, setIsFollowing] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(false);
+
   // handle name 
   const handleName = newName => {
     setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
@@ -1517,34 +1586,166 @@ function Edit({
       draft.options.isShowBadge = draft.options.isShowBadge ? false : true;
     }));
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      group: "styles"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      group: "settings",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      group: "styles",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        title: "Card Container",
+        initialOpen: false,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Width",
+          initialOpen: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalUnitControl, {
+            value: styles?.cardContainer.width,
+            onChange: width => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.cardContainer.width = width;
+            })),
+            units: ['px']
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Text Align",
+          initialOpen: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Flex, {
+            align: "center",
+            gap: "8px",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.FlexItem, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentControl, {
+                value: styles?.cardContainer.textAlign,
+                onChange: align => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                  draft.styles.cardContainer.textAlign = align;
+                }))
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.FlexItem, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                style: {
+                  fontStyle: 'italic',
+                  fontSize: '13px'
+                },
+                children: {
+                  left: 'Left Aligned',
+                  center: 'Center Aligned',
+                  right: 'Right Aligned',
+                  justify: 'Justified',
+                  undefined: 'Default',
+                  null: 'Default'
+                }[styles?.cardContainer.textAlign]
+              })
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Background",
+          initialOpen: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPalette, {
+            colors: [{
+              name: 'red',
+              color: '#f00'
+            }, {
+              name: 'white',
+              color: '#fff'
+            }, {
+              name: 'blue',
+              color: '#00f'
+            }],
+            value: styles?.cardContainer.backgroundColor,
+            onChange: color => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.cardContainer.backgroundColor = color;
+            }))
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Border radius",
+          initialOpen: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+            value: styles?.cardContainer.borderRadius,
+            onChange: radius => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.cardContainer.borderRadius = radius;
+            }))
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Text color",
+          initialOpen: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPalette, {
+            colors: [{
+              name: 'red',
+              color: '#f00'
+            }, {
+              name: 'white',
+              color: '#fff'
+            }, {
+              name: 'blue',
+              color: '#00f'
+            }],
+            value: styles?.cardContainer.color,
+            onChange: color => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.cardContainer.color = color;
+            }))
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "Avatar",
         initialOpen: false,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Width",
+          initialOpen: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalUnitControl, {
+            value: styles?.avatar.width,
+            onChange: width => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.avatar.width = width;
+            })),
+            units: ['px']
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Height",
+          initialOpen: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.__experimentalUnitControl, {
+            value: styles?.avatar.height,
+            onChange: height => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.avatar.height = height;
+            })),
+            units: ['px']
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Border",
+          initialOpen: false,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+            label: "Radius",
+            value: styles?.avatar.borderRadius,
+            onChange: radius => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.avatar.borderRadius = radius;
+            }))
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+            label: "styles",
+            value: styles.avatar.border,
+            onChange: borderStyle => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.avatar.border = borderStyle;
+            }))
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      group: "settings",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        title: "Avatar",
+        initialOpen: false,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
           onSelect: media => {
             handleAvatarUrl(media.url);
           },
           multiple: false,
           render: ({
             open
-          }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             style: {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               gap: "5px"
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
               height: "50px",
               width: "100px",
               alt: "user",
               src: profile.imgUrl
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
               style: {
                 textAlign: "Center"
               },
@@ -1553,43 +1754,43 @@ function Edit({
               size: "small",
               onClick: open,
               children: "upload"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
               children: "Or"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
               label: "add url",
               value: profile?.imgUrl,
               onChange: newUrl => handleAvatarUrl(newUrl)
             })]
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "Message Button",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
           label: "Text",
           value: profile.messageBtn.txt || "",
           onChange: handleMsgBtnTxt
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
           label: "Url",
           value: profile.messageBtn.url || "#",
           onChange: handleMsgBtnUrl
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "Skill section",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h3", {
           children: ["Total Skills: ", profile?.skills.length]
         }), profile?.skills.map((skill, idx) => {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               style: {
                 position: "relative"
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
                 value: skill || "",
                 onChange: newSkill => handleEditSkill(newSkill, idx),
                 style: {
                   paddingRight: "70px"
                 }
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 style: {
                   position: "absolute",
                   right: "10px",
@@ -1600,12 +1801,12 @@ function Edit({
                   alignItems: "center",
                   gap: "5px"
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
                   variant: "secondary",
                   size: "small",
                   icon: "admin-page",
                   onClick: () => handleCopySkill(skill, idx)
-                }), profile?.skills.length > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+                }), profile?.skills.length > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
                   variant: "tertiary",
                   size: "small",
                   icon: "remove",
@@ -1617,26 +1818,28 @@ function Edit({
               })]
             }, `skill-${idx}`)
           });
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
           variant: "primary",
           icon: "database-add",
           size: "compact",
           onClick: handleAddNewSkill,
           children: "Add skill"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "options",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
           label: "show badge",
-          checked: !!options.isShowBadge,
+          checked: options.isShowBadge,
           onChange: handleShowBadge
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
         draggable: false
       }),
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_common_ProfileCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_common_Style__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        styles: styles
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_common_ProfileCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
         isBackEnd: true,
         profile: profile,
         onNameChange: handleName,
@@ -1644,7 +1847,7 @@ function Edit({
         onTitleChange: handleTitle,
         onFollowChange: handleFollow,
         options: options
-      })
+      })]
     })]
   });
 }

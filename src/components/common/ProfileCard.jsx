@@ -2,7 +2,7 @@ import { useState } from 'react'
 import SbRichText from '../modules/SbRichText'
 
 const ProfileCard = ({ options, isBackEnd = true, profile = {}, onNameChange, onCountryChange, onTitleChange, onFollowChange }) => {
-    console.log(options);
+
     const [isFollowing, setIsFollowing] = useState(false)
 
     const handleFollow = () => {
@@ -20,13 +20,13 @@ const ProfileCard = ({ options, isBackEnd = true, profile = {}, onNameChange, on
             }
             <img className="round" height={"100%"} width={"100%"} src={profile?.imgUrl || "https://randomuser.me/api/portraits/women/79.jpg"} alt="user" />
             {
-                isBackEnd ? <SbRichText content={name} tagName='h3' onContentChange={onNameChange} /> : <h3>{name}</h3>
+                isBackEnd ? <SbRichText content={name} tagName='h3' onContentChange={onNameChange} /> : <h3 dangerouslySetInnerHTML={{ __html: name }}></h3>
             }
             {
-                isBackEnd ? <SbRichText content={country} tagName='h6' onContentChange={onCountryChange} /> : <h6>{country}</h6>
+                isBackEnd ? <SbRichText content={country} tagName='h6' onContentChange={onCountryChange} /> : <h6 dangerouslySetInnerHTML={{ __html: country }}></h6>
             }
             {
-                isBackEnd ? <SbRichText content={profile?.title} tagName='p' onContentChange={onTitleChange} /> : <p>{title}</p>
+                isBackEnd ? <SbRichText content={profile?.title} tagName='p' onContentChange={onTitleChange} /> : <p dangerouslySetInnerHTML={{ __html: title }}></p>
             }
 
             <div className="buttons">
@@ -53,7 +53,7 @@ const ProfileCard = ({ options, isBackEnd = true, profile = {}, onNameChange, on
 
                 </ul>
             </div>
-        </div>
+        </div >
 
     </>
 }

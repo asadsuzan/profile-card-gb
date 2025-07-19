@@ -52,6 +52,34 @@ return array(
 				'default' => array(
 					'isShowBadge' => true
 				)
+			),
+			'styles' => array(
+				'type' => 'object',
+				'default' => array(
+					'cardContainer' => array(
+						'backgroundColor' => ' #231E39',
+						'borderRadius' => 5,
+						'boxShadow' => ' 0px 10px 20px -10px rgba(0,0,0,0.75)',
+						'color' => '#B3B8CD',
+						'paddingTop' => '30px',
+						'position' => 'relative',
+						'width' => '350px',
+						'maxWidth' => '100%',
+						'textAlign' => 'center'
+					),
+					'avatar' => array(
+						'border' => array(
+							'width' => '1px',
+							'color' => '#03BFCB',
+							'style' => 'solid'
+						),
+						'borderRadius' => '50%',
+						'padding' => ' 7px',
+						'height' => '170px',
+						'width' => '170px',
+						'objectFit' => 'fill'
+					)
+				)
 			)
 		),
 		'textdomain' => 'sb-profile-card',

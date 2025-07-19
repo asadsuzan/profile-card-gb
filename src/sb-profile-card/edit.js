@@ -1,13 +1,20 @@
 import { __ } from '@wordpress/i18n';
-import { InspectorControls, useBlockProps, MediaUpload } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps, MediaUpload, AlignmentControl } from '@wordpress/block-editor';
 import './editor.scss';
 import ProfileCard from '../components/common/ProfileCard';
-import { Button, ButtonGroup, FormToggle, PanelBody, TextControl, ToggleControl } from "@wordpress/components"
+import { Button, ButtonGroup, ColorPalette, FormToggle, PanelBody, TextControl, ToggleControl, RangeControl, __experimentalUnitControl as UnitControl, Flex, FlexItem, BorderControl } from "@wordpress/components"
 import { produce } from "immer"
 import { useState } from 'react';
+import Style from '../components/common/Style';
+
 export default function Edit({ attributes, setAttributes }) {
-	const { profile, options } = attributes || {}
+	const { profile, options, styles } = attributes || {}
 	const [isFollowing, setIsFollowing] = useState(false)
+
+
+
+
+
 	// handle name 
 	const handleName = (newName) => {
 		setAttributes(produce(attributes, draft => {
@@ -96,7 +103,127 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			{/* // settings  */}
-			<InspectorControls group='styles'></InspectorControls>
+			<InspectorControls group='styles'>
+				<PanelBody title='Card Container' initialOpen={false}>
+					<PanelBody title='Width' initialOpen={false}>
+						<UnitControl
+
+							value={styles?.cardContainer.width}
+							onChange={(width) => setAttributes(produce(attributes, draft => {
+								draft.styles.cardContainer.width = width
+							}))}
+							units={['px']}
+						/>
+					</PanelBody>
+					<PanelBody title="Text Align" initialOpen={false}>
+						<Flex align="center" gap="8px">
+							<FlexItem>
+								<AlignmentControl
+									value={styles?.cardContainer.textAlign}
+									onChange={(align) =>
+										setAttributes(produce(attributes, (draft) => {
+											draft.styles.cardContainer.textAlign = align;
+										}))
+									}
+								/>
+							</FlexItem>
+							<FlexItem>
+								<span style={{ fontStyle: 'italic', fontSize: '13px' }}>
+									{
+										{
+											left: 'Left Aligned',
+											center: 'Center Aligned',
+											right: 'Right Aligned',
+											justify: 'Justified',
+											undefined: 'Default',
+											null: 'Default',
+										}[styles?.cardContainer.textAlign]
+									}
+								</span>
+							</FlexItem>
+						</Flex>
+					</PanelBody>
+
+					<PanelBody title='Background' initialOpen={false}>
+						<ColorPalette
+							colors={[
+								{ name: 'red', color: '#f00' },
+								{ name: 'white', color: '#fff' },
+								{ name: 'blue', color: '#00f' }
+							]}
+
+							value={styles?.cardContainer.backgroundColor}
+							onChange={(color) => setAttributes(produce(attributes, draft => {
+								draft.styles.cardContainer.backgroundColor = color
+							}))}
+
+						/>
+					</PanelBody>
+					<PanelBody title='Border radius' initialOpen={false}>
+						<RangeControl value={styles?.cardContainer.borderRadius}
+
+							onChange={(radius) => setAttributes(produce(attributes, draft => {
+								draft.styles.cardContainer.borderRadius = radius
+							}))}
+						/>
+					</PanelBody>
+					<PanelBody title='Text color' initialOpen={false}>
+						<ColorPalette
+							colors={[
+								{ name: 'red', color: '#f00' },
+								{ name: 'white', color: '#fff' },
+								{ name: 'blue', color: '#00f' }
+							]}
+
+							value={styles?.cardContainer.color}
+							onChange={(color) => setAttributes(produce(attributes, draft => {
+								draft.styles.cardContainer.color = color
+							}))}
+
+						/>
+					</PanelBody>
+				</PanelBody>
+
+				<PanelBody title='Avatar' initialOpen={false}>
+					<PanelBody title='Width' initialOpen={false}>
+						<UnitControl
+
+							value={styles?.avatar.width}
+							onChange={(width) => setAttributes(produce(attributes, draft => {
+								draft.styles.avatar.width = width
+							}))}
+							units={['px']}
+						/>
+					</PanelBody>
+					<PanelBody title='Height' initialOpen={false}>
+						<UnitControl
+
+							value={styles?.avatar.height}
+							onChange={(height) => setAttributes(produce(attributes, draft => {
+								draft.styles.avatar.height = height
+							}))}
+							units={['px']}
+						/>
+					</PanelBody>
+
+					<PanelBody title='Border' initialOpen={false}>
+						<RangeControl label='Radius' value={styles?.avatar.borderRadius}
+
+							onChange={(radius) => setAttributes(produce(attributes, draft => {
+								draft.styles.avatar.borderRadius = radius
+							}))}
+						/>
+						<BorderControl
+							label="styles"
+							value={styles.avatar.border}
+							onChange={(borderStyle) => setAttributes(produce(attributes, draft => {
+								draft.styles.avatar.border = borderStyle
+							}))}
+						/>
+					</PanelBody>
+				</PanelBody>
+
+			</InspectorControls>
 			<InspectorControls group='settings'>
 
 				<PanelBody title="Avatar" initialOpen={false}>
@@ -171,7 +298,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 				{/* options  */}
 				<PanelBody title='options'>
-					<ToggleControl label="show badge" checked={!!options.isShowBadge} onChange={handleShowBadge} />
+					<ToggleControl label="show badge" checked={options.isShowBadge} onChange={handleShowBadge} />
 				</PanelBody>
 			</InspectorControls >
 
@@ -181,6 +308,8 @@ export default function Edit({ attributes, setAttributes }) {
 				draggable: false,
 
 			})}>
+
+				<Style styles={styles} />
 				<ProfileCard
 					isBackEnd={true}
 					profile={profile}
