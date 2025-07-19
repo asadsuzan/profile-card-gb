@@ -184,6 +184,7 @@ const Style = ({
 		            width:${cardContainer.width};
                     text-align:${cardContainer.textAlign};
 		            max-width: 100%;
+                    overflow:hidden
 		        
 	
                 }
