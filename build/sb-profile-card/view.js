@@ -168,7 +168,8 @@ const Style = ({
   const {
     cardContainer,
     avatar,
-    button
+    button,
+    skill
   } = styles || {};
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
     dangerouslySetInnerHTML: {
@@ -228,6 +229,19 @@ const Style = ({
                 border-style: ${button.followBtn.border.style};
                 border-color: ${button.followBtn.border.color};
             }
+                 
+             .skills {
+	            background-color: ${skill.container.backgroundColor};
+	            text-align:${skill.container.textAlign};
+	             padding-top: ${skill.container.padding.top};
+	            padding-bottom: ${skill.container.padding.bottom};
+	            padding-left: ${skill.container.padding.left};
+	            padding-right: ${skill.container.padding.right};
+	            margin-top:${skill.container.margin.top} ;
+}
+
+
+
 
                 `
     }

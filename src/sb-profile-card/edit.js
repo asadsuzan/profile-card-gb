@@ -379,7 +379,28 @@ export default function Edit({ attributes, setAttributes }) {
 
 				</PanelBody>
 
+				<PanelBody title='Skill'>
+					<PanelBody title='Container'>
+						<p >Background</p>
+						<ColorPalette
+							colors={[
+								{ name: 'red', color: '#f00' },
+								{ name: 'white', color: '#fff' },
+								{ name: 'blue', color: '#00f' }
+							]}
+
+							value={styles?.skill.container.backgroundColor}
+							onChange={(color) => setAttributes(produce(attributes, draft => {
+								draft.styles.skill.container.backgroundColor = color
+							}))}
+
+						/>
+					</PanelBody>
+				</PanelBody>
+
 			</InspectorControls>
+
+			{/* settings  */}
 			<InspectorControls group='settings'>
 
 				<PanelBody title="Avatar" initialOpen={false}>

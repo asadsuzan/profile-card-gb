@@ -116,6 +116,24 @@ return array(
 								'style' => 'solid'
 							)
 						)
+					),
+					'skill' => array(
+						'container' => array(
+							'backgroundColor' => '#1F1A36',
+							'padding' => array(
+								'bottom' => '10px',
+								'left' => ' 25px',
+								'right' => ' 25px',
+								'top' => '10px'
+							),
+							'margin' => array(
+								'bottom' => '0px',
+								'left' => ' 0px',
+								'right' => ' 0px',
+								'top' => '30px'
+							),
+							'textAlign' => 'left'
+						)
 					)
 				)
 			)

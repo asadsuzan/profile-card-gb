@@ -1,5 +1,5 @@
 const Style = ({ styles }) => {
-    const { cardContainer, avatar, button } = styles || {}
+    const { cardContainer, avatar, button, skill } = styles || {}
         ;
     return (
         <style
@@ -60,6 +60,19 @@ const Style = ({ styles }) => {
                 border-style: ${button.followBtn.border.style};
                 border-color: ${button.followBtn.border.color};
             }
+                 
+             .skills {
+	            background-color: ${skill.container.backgroundColor};
+	            text-align:${skill.container.textAlign};
+	             padding-top: ${skill.container.padding.top};
+	            padding-bottom: ${skill.container.padding.bottom};
+	            padding-left: ${skill.container.padding.left};
+	            padding-right: ${skill.container.padding.right};
+	            margin-top:${skill.container.margin.top} ;
+}
+
+
+
 
                 `
 

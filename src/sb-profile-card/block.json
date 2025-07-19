@@ -111,6 +111,24 @@
 							"style": "solid"
 						}
 					}
+				},
+				"skill": {
+					"container": {
+						"backgroundColor": "#1F1A36",
+						"padding": {
+							"bottom": "10px",
+							"left": " 25px",
+							"right": " 25px",
+							"top": "10px"
+						},
+						"margin": {
+							"bottom": "0px",
+							"left": " 0px",
+							"right": " 0px",
+							"top": "30px"
+						},
+						"textAlign": "left"
+					}
 				}
 			}
 		}

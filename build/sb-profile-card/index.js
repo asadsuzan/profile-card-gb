@@ -1376,7 +1376,8 @@ const Style = ({
   const {
     cardContainer,
     avatar,
-    button
+    button,
+    skill
   } = styles || {};
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
     dangerouslySetInnerHTML: {
@@ -1436,6 +1437,19 @@ const Style = ({
                 border-style: ${button.followBtn.border.style};
                 border-color: ${button.followBtn.border.color};
             }
+                 
+             .skills {
+	            background-color: ${skill.container.backgroundColor};
+	            text-align:${skill.container.textAlign};
+	             padding-top: ${skill.container.padding.top};
+	            padding-bottom: ${skill.container.padding.bottom};
+	            padding-left: ${skill.container.padding.left};
+	            padding-right: ${skill.container.padding.right};
+	            margin-top:${skill.container.margin.top} ;
+}
+
+
+
 
                 `
     }
@@ -1483,7 +1497,7 @@ const SbRichText = ({
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and <br> front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true,"isShowMessageBtn":true,"isShowFollowBtn":true}},"styles":{"type":"object","default":{"cardContainer":{"backgroundColor":" #231E39","borderRadius":5,"boxShadow":" 0px 10px 20px -10px rgba(0,0,0,0.75)","color":"#B3B8CD","paddingTop":"30px","position":"relative","width":"350px","maxWidth":"100%","textAlign":"center"},"avatar":{"border":{"width":"1px","color":"#03BFCB","style":"solid"},"borderRadius":50,"padding":{"bottom":7,"left":7,"right":7,"top":7},"height":"170px","width":"170px","objectFit":"fill"},"button":{"borderRadius":3,"fontFamily":"Montserrat, sans-serif","fontWeight":500,"padding":{"bottom":"10px","left":" 25px","right":" 25px","top":"10px"},"followBtn":{"backgroundColor":"transparent","isTransparentBg":true,"color":" #02899C","border":{"width":"1px","color":"#03BFCB","style":"solid"}},"messageBtn":{"backgroundColor":"#03BFCB","isTransparentBg":false,"color":"#231E39","border":{"width":"1px","color":"#03BFCB","style":"solid"}}}}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and <br> front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true,"isShowMessageBtn":true,"isShowFollowBtn":true}},"styles":{"type":"object","default":{"cardContainer":{"backgroundColor":" #231E39","borderRadius":5,"boxShadow":" 0px 10px 20px -10px rgba(0,0,0,0.75)","color":"#B3B8CD","paddingTop":"30px","position":"relative","width":"350px","maxWidth":"100%","textAlign":"center"},"avatar":{"border":{"width":"1px","color":"#03BFCB","style":"solid"},"borderRadius":50,"padding":{"bottom":7,"left":7,"right":7,"top":7},"height":"170px","width":"170px","objectFit":"fill"},"button":{"borderRadius":3,"fontFamily":"Montserrat, sans-serif","fontWeight":500,"padding":{"bottom":"10px","left":" 25px","right":" 25px","top":"10px"},"followBtn":{"backgroundColor":"transparent","isTransparentBg":true,"color":" #02899C","border":{"width":"1px","color":"#03BFCB","style":"solid"}},"messageBtn":{"backgroundColor":"#03BFCB","isTransparentBg":false,"color":"#231E39","border":{"width":"1px","color":"#03BFCB","style":"solid"}}},"skill":{"container":{"backgroundColor":"#1F1A36","padding":{"bottom":"10px","left":" 25px","right":" 25px","top":"10px"},"margin":{"bottom":"0px","left":" 0px","right":" 0px","top":"30px"},"textAlign":"left"}}}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -1907,6 +1921,29 @@ function Edit({
             })
           })]
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        title: "Skill",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Container",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+            children: "Background"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPalette, {
+            colors: [{
+              name: 'red',
+              color: '#f00'
+            }, {
+              name: 'white',
+              color: '#fff'
+            }, {
+              name: 'blue',
+              color: '#00f'
+            }],
+            value: styles?.skill.container.backgroundColor,
+            onChange: color => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.skill.container.backgroundColor = color;
+            }))
+          })]
+        })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
       group: "settings",
