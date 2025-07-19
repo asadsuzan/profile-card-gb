@@ -1942,6 +1942,46 @@ function Edit({
             onChange: color => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
               draft.styles.skill.container.backgroundColor = color;
             }))
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+            children: "Padding"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.BoxControl, {
+            values: styles.skill.container.padding,
+            onChange: padding => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.skill.container.padding = padding;
+            }))
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+            children: "Margin"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.BoxControl, {
+            values: styles.skill.container.margin,
+            onChange: margin => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.skill.container.margin = margin;
+            }))
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Flex, {
+            align: "center",
+            gap: "8px",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.FlexItem, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.AlignmentControl, {
+                value: styles?.skill.container.textAlign,
+                onChange: align => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                  draft.styles.skill.container.textAlign = align;
+                }))
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.FlexItem, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                style: {
+                  fontStyle: 'italic',
+                  fontSize: '13px'
+                },
+                children: {
+                  left: 'Left Aligned',
+                  center: 'Center Aligned',
+                  right: 'Right Aligned',
+                  justify: 'Justified',
+                  undefined: 'Default',
+                  null: 'Default'
+                }[styles?.cardContainer.textAlign]
+              })
+            })]
           })]
         })
       })]

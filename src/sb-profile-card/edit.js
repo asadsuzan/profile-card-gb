@@ -395,6 +395,46 @@ export default function Edit({ attributes, setAttributes }) {
 							}))}
 
 						/>
+						<p>Padding</p>
+						<BoxControl
+							values={styles.skill.container.padding}
+							onChange={(padding) => setAttributes(produce(attributes, draft => {
+								draft.styles.skill.container.padding = padding
+							}))}
+						/>
+						<p>Margin</p>
+						<BoxControl
+							values={styles.skill.container.margin}
+							onChange={(margin) => setAttributes(produce(attributes, draft => {
+								draft.styles.skill.container.margin = margin
+							}))}
+						/>
+						<Flex align="center" gap="8px">
+							<FlexItem>
+								<AlignmentControl
+									value={styles?.skill.container.textAlign}
+									onChange={(align) =>
+										setAttributes(produce(attributes, (draft) => {
+											draft.styles.skill.container.textAlign = align;
+										}))
+									}
+								/>
+							</FlexItem>
+							<FlexItem>
+								<span style={{ fontStyle: 'italic', fontSize: '13px' }}>
+									{
+										{
+											left: 'Left Aligned',
+											center: 'Center Aligned',
+											right: 'Right Aligned',
+											justify: 'Justified',
+											undefined: 'Default',
+											null: 'Default',
+										}[styles?.cardContainer.textAlign]
+									}
+								</span>
+							</FlexItem>
+						</Flex>
 					</PanelBody>
 				</PanelBody>
 
