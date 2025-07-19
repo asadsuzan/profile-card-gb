@@ -296,11 +296,66 @@ export default function Edit({ attributes, setAttributes }) {
 
 								/>
 							}
+
+
+						</PanelBody>
+						<PanelBody title='color'>
+							<ColorPalette
+
+								colors={[
+									{ name: 'red', color: '#f00' },
+									{ name: 'white', color: '#fff' },
+									{ name: 'blue', color: '#00f' }
+								]}
+
+								value={styles?.button.messageBtn.color}
+								onChange={(color) => setAttributes(produce(attributes, draft => {
+									draft.styles.button.messageBtn.color = color
+								}))}
+
+							/>
 						</PanelBody>
 
+					</PanelBody>
+					<PanelBody title='Follow Button' initialOpen={false}>
+						<PanelBody title='Background color'>
+							<ToggleControl label="Transparent Background" checked={styles?.button.followBtn.isTransparentBg} onChange={() => handleTransParentBg("followBtn")} />
+							{
+								!styles?.button.followBtn.isTransparentBg && <ColorPalette
+									colors={[
+										{ name: 'red', color: '#f00' },
+										{ name: 'white', color: '#fff' },
+										{ name: 'blue', color: '#00f' }
+									]}
+
+									value={styles?.button.followBtn.backgroundColor}
+									onChange={(color) => setAttributes(produce(attributes, draft => {
+										draft.styles.button.followBtn.backgroundColor = color
+									}))}
+
+								/>
+							}
+
+
+						</PanelBody>
+						<PanelBody title='color'>
+							<ColorPalette
+
+								colors={[
+									{ name: 'red', color: '#f00' },
+									{ name: 'white', color: '#fff' },
+									{ name: 'blue', color: '#00f' }
+								]}
+
+								value={styles?.button.followBtn.color}
+								onChange={(color) => setAttributes(produce(attributes, draft => {
+									draft.styles.button.followBtn.color = color
+								}))}
+
+							/>
+						</PanelBody>
 
 					</PanelBody>
-					<PanelBody title='Follow Button' initialOpen={false}></PanelBody>
 
 
 				</PanelBody>

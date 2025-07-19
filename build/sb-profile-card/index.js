@@ -1801,10 +1801,10 @@ function Edit({
               }))
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
           title: "Message Button",
           initialOpen: false,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
             title: "Background color",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
               label: "Transparent Background",
@@ -1826,10 +1826,69 @@ function Edit({
                 draft.styles.button.messageBtn.backgroundColor = color;
               }))
             })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+            title: "color",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPalette, {
+              colors: [{
+                name: 'red',
+                color: '#f00'
+              }, {
+                name: 'white',
+                color: '#fff'
+              }, {
+                name: 'blue',
+                color: '#00f'
+              }],
+              value: styles?.button.messageBtn.color,
+              onChange: color => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                draft.styles.button.messageBtn.color = color;
+              }))
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
           title: "Follow Button",
-          initialOpen: false
+          initialOpen: false,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+            title: "Background color",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+              label: "Transparent Background",
+              checked: styles?.button.followBtn.isTransparentBg,
+              onChange: () => handleTransParentBg("followBtn")
+            }), !styles?.button.followBtn.isTransparentBg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPalette, {
+              colors: [{
+                name: 'red',
+                color: '#f00'
+              }, {
+                name: 'white',
+                color: '#fff'
+              }, {
+                name: 'blue',
+                color: '#00f'
+              }],
+              value: styles?.button.followBtn.backgroundColor,
+              onChange: color => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                draft.styles.button.followBtn.backgroundColor = color;
+              }))
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+            title: "color",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPalette, {
+              colors: [{
+                name: 'red',
+                color: '#f00'
+              }, {
+                name: 'white',
+                color: '#fff'
+              }, {
+                name: 'blue',
+                color: '#00f'
+              }],
+              value: styles?.button.followBtn.color,
+              onChange: color => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                draft.styles.button.followBtn.color = color;
+              }))
+            })
+          })]
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
