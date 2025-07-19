@@ -315,7 +315,15 @@ export default function Edit({ attributes, setAttributes }) {
 
 							/>
 						</PanelBody>
+						<PanelBody title='Border'>
+							<BorderControl
 
+								value={styles.button.messageBtn.border}
+								onChange={(borderStyle) => setAttributes(produce(attributes, draft => {
+									draft.styles.button.messageBtn.border = borderStyle
+								}))}
+							/>
+						</PanelBody>
 					</PanelBody>
 					<PanelBody title='Follow Button' initialOpen={false}>
 						<PanelBody title='Background color'>
@@ -354,6 +362,17 @@ export default function Edit({ attributes, setAttributes }) {
 
 							/>
 						</PanelBody>
+
+						<PanelBody title='Border'>
+							<BorderControl
+
+								value={styles.button.followBtn.border}
+								onChange={(borderStyle) => setAttributes(produce(attributes, draft => {
+									draft.styles.button.followBtn.border = borderStyle
+								}))}
+							/>
+						</PanelBody>
+
 
 					</PanelBody>
 

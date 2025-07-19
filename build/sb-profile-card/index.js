@@ -1844,6 +1844,14 @@ function Edit({
                 draft.styles.button.messageBtn.color = color;
               }))
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+            title: "Border",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+              value: styles.button.messageBtn.border,
+              onChange: borderStyle => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                draft.styles.button.messageBtn.border = borderStyle;
+              }))
+            })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
           title: "Follow Button",
@@ -1886,6 +1894,14 @@ function Edit({
               value: styles?.button.followBtn.color,
               onChange: color => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
                 draft.styles.button.followBtn.color = color;
+              }))
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+            title: "Border",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.BorderControl, {
+              value: styles.button.followBtn.border,
+              onChange: borderStyle => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                draft.styles.button.followBtn.border = borderStyle;
               }))
             })
           })]
