@@ -1,5 +1,5 @@
 const Style = ({ styles }) => {
-    const { cardContainer, avatar } = styles || {}
+    const { cardContainer, avatar, button } = styles || {}
         ;
     return (
         <style
@@ -35,6 +35,31 @@ const Style = ({ styles }) => {
             
             }
                 
+
+        button{
+	            font-family: ${button.fontFamily};
+	            font-weight: ${button.fontWeight};
+	            padding-top: ${button.padding.top};
+	            padding-bottom: ${button.padding.bottom};
+	            padding-left: ${button.padding.left};
+	            padding-right: ${button.padding.right};
+                border-radius: ${button.borderRadius}%;
+        }
+            button.message {
+	            background-color:${button.messageBtn.backgroundColor};
+	            color:${button.messageBtn.color};
+                border-width: ${button.messageBtn.border.width};
+                border-style: ${button.messageBtn.border.style};
+                border-color: ${button.messageBtn.border.color};
+            }
+            button.follow {
+	            background-color:${button.followBtn.backgroundColor};
+	            color:${button.followBtn.color};
+                border-width: ${button.followBtn.border.width};
+                border-style: ${button.followBtn.border.style};
+                border-color: ${button.followBtn.border.color};
+            }
+
                 `
 
             }}

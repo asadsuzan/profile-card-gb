@@ -112,6 +112,18 @@ export default function Edit({ attributes, setAttributes }) {
 			draft.options.isShowFollowBtn = draft.options.isShowFollowBtn ? false : true
 		}))
 	}
+
+	//  handle transparent background
+	const handleTransParentBg = (ele) => {
+		const existingBg = styles.button[ele].backgroundColor
+
+		setAttributes(produce(attributes, draft => {
+			draft.styles.button[ele].isTransparentBg = draft.styles.button[ele].isTransparentBg ? false : true
+			draft.styles.button[ele].backgroundColor = draft.styles.button[ele].isTransparentBg ? "transparent" : existingBg
+		}))
+
+
+	}
 	return (
 		<>
 			{/* // settings  */}
@@ -241,6 +253,56 @@ export default function Edit({ attributes, setAttributes }) {
 							}))}
 						/>
 					</PanelBody>
+				</PanelBody>
+
+
+				<PanelBody title='Buttons' initialOpen={false}>
+
+					<PanelBody title='common' initialOpen="false">
+						<PanelBody title='Border radius' initialOpen={false}>
+							<RangeControl value={styles?.button.borderRadius}
+
+								onChange={(radius) => setAttributes(produce(attributes, draft => {
+									draft.styles.button.borderRadius = radius
+								}))}
+							/>
+						</PanelBody>
+
+						<PanelBody title='padding'>
+							<BoxControl
+								values={styles.button.padding}
+								onChange={(padding) => setAttributes(produce(attributes, draft => {
+									draft.styles.button.padding = padding
+								}))}
+							/>
+						</PanelBody>
+					</PanelBody>
+
+					<PanelBody title='Message Button' initialOpen={false}>
+						<PanelBody title='Background color'>
+							<ToggleControl label="Transparent Background" checked={styles?.button.messageBtn.isTransparentBg} onChange={() => handleTransParentBg("messageBtn")} />
+							{
+								!styles?.button.messageBtn.isTransparentBg && <ColorPalette
+									colors={[
+										{ name: 'red', color: '#f00' },
+										{ name: 'white', color: '#fff' },
+										{ name: 'blue', color: '#00f' }
+									]}
+
+									value={styles?.button.messageBtn.backgroundColor}
+									onChange={(color) => setAttributes(produce(attributes, draft => {
+										draft.styles.button.messageBtn.backgroundColor = color
+									}))}
+
+								/>
+							}
+						</PanelBody>
+
+
+					</PanelBody>
+					<PanelBody title='Follow Button' initialOpen={false}></PanelBody>
+
+
 				</PanelBody>
 
 			</InspectorControls>

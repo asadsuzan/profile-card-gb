@@ -31,7 +31,7 @@ return array(
 					'imgUrl' => '',
 					'name' => 'jon does',
 					'country' => 'New York',
-					'title' => 'User interface designer and front-end developer',
+					'title' => 'User interface designer and <br> front-end developer',
 					'messageBtn' => array(
 						'txt' => 'message',
 						'url' => '#'
@@ -85,6 +85,37 @@ return array(
 						'height' => '170px',
 						'width' => '170px',
 						'objectFit' => 'fill'
+					),
+					'button' => array(
+						'borderRadius' => 3,
+						'fontFamily' => 'Montserrat, sans-serif',
+						'fontWeight' => 500,
+						'padding' => array(
+							'bottom' => '10px',
+							'left' => ' 25px',
+							'right' => ' 25px',
+							'top' => '10px'
+						),
+						'followBtn' => array(
+							'backgroundColor' => 'transparent',
+							'isTransparentBg' => true,
+							'color' => ' #02899C',
+							'border' => array(
+								'width' => '1px',
+								'color' => '#03BFCB',
+								'style' => 'solid'
+							)
+						),
+						'messageBtn' => array(
+							'backgroundColor' => '#03BFCB',
+							'isTransparentBg' => false,
+							'color' => '#231E39',
+							'border' => array(
+								'width' => '1px',
+								'color' => '#03BFCB',
+								'style' => 'solid'
+							)
+						)
 					)
 				)
 			)

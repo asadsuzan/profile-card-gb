@@ -1330,11 +1330,11 @@ const ProfileCard = ({
           href: messageBtn?.url || "#",
           target: "_blank",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "primary",
+            className: "message",
             children: messageBtn.txt || ""
           })
         }), options?.isShowFollowBtn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "primary ghost",
+          className: "follow",
           onClick: handleFollow,
           children: isFollowing ? "Following" : "Follow"
         })]
@@ -1375,7 +1375,8 @@ const Style = ({
 }) => {
   const {
     cardContainer,
-    avatar
+    avatar,
+    button
   } = styles || {};
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
     dangerouslySetInnerHTML: {
@@ -1410,6 +1411,31 @@ const Style = ({
             
             }
                 
+
+        button{
+	            font-family: ${button.fontFamily};
+	            font-weight: ${button.fontWeight};
+	            padding-top: ${button.padding.top};
+	            padding-bottom: ${button.padding.bottom};
+	            padding-left: ${button.padding.left};
+	            padding-right: ${button.padding.right};
+                border-radius: ${button.borderRadius}%;
+        }
+            button.message {
+	            background-color:${button.messageBtn.backgroundColor};
+	            color:${button.messageBtn.color};
+                border-width: ${button.messageBtn.border.width};
+                border-style: ${button.messageBtn.border.style};
+                border-color: ${button.messageBtn.border.color};
+            }
+            button.follow {
+	            background-color:${button.followBtn.backgroundColor};
+	            color:${button.followBtn.color};
+                border-width: ${button.followBtn.border.width};
+                border-style: ${button.followBtn.border.style};
+                border-color: ${button.followBtn.border.color};
+            }
+
                 `
     }
   });
@@ -1456,7 +1482,7 @@ const SbRichText = ({
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true,"isShowMessageBtn":true,"isShowFollowBtn":true}},"styles":{"type":"object","default":{"cardContainer":{"backgroundColor":" #231E39","borderRadius":5,"boxShadow":" 0px 10px 20px -10px rgba(0,0,0,0.75)","color":"#B3B8CD","paddingTop":"30px","position":"relative","width":"350px","maxWidth":"100%","textAlign":"center"},"avatar":{"border":{"width":"1px","color":"#03BFCB","style":"solid"},"borderRadius":50,"padding":{"bottom":7,"left":7,"right":7,"top":7},"height":"170px","width":"170px","objectFit":"fill"}}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and <br> front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true,"isShowMessageBtn":true,"isShowFollowBtn":true}},"styles":{"type":"object","default":{"cardContainer":{"backgroundColor":" #231E39","borderRadius":5,"boxShadow":" 0px 10px 20px -10px rgba(0,0,0,0.75)","color":"#B3B8CD","paddingTop":"30px","position":"relative","width":"350px","maxWidth":"100%","textAlign":"center"},"avatar":{"border":{"width":"1px","color":"#03BFCB","style":"solid"},"borderRadius":50,"padding":{"bottom":7,"left":7,"right":7,"top":7},"height":"170px","width":"170px","objectFit":"fill"},"button":{"borderRadius":3,"fontFamily":"Montserrat, sans-serif","fontWeight":500,"padding":{"bottom":"10px","left":" 25px","right":" 25px","top":"10px"},"followBtn":{"backgroundColor":"transparent","isTransparentBg":true,"color":" #02899C","border":{"width":"1px","color":"#03BFCB","style":"solid"}},"messageBtn":{"backgroundColor":"#03BFCB","isTransparentBg":false,"color":"#231E39","border":{"width":"1px","color":"#03BFCB","style":"solid"}}}}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -1600,6 +1626,15 @@ function Edit({
       draft.options.isShowFollowBtn = draft.options.isShowFollowBtn ? false : true;
     }));
   };
+
+  //  handle transparent background
+  const handleTransParentBg = ele => {
+    const existingBg = styles.button[ele].backgroundColor;
+    setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+      draft.styles.button[ele].isTransparentBg = draft.styles.button[ele].isTransparentBg ? false : true;
+      draft.styles.button[ele].backgroundColor = draft.styles.button[ele].isTransparentBg ? "transparent" : existingBg;
+    }));
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
       group: "styles",
@@ -1741,6 +1776,60 @@ function Edit({
               draft.styles.avatar.border = borderStyle;
             }))
           })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+        title: "Buttons",
+        initialOpen: false,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "common",
+          initialOpen: "false",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+            title: "Border radius",
+            initialOpen: false,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+              value: styles?.button.borderRadius,
+              onChange: radius => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                draft.styles.button.borderRadius = radius;
+              }))
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+            title: "padding",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.BoxControl, {
+              values: styles.button.padding,
+              onChange: padding => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                draft.styles.button.padding = padding;
+              }))
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Message Button",
+          initialOpen: false,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+            title: "Background color",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+              label: "Transparent Background",
+              checked: styles?.button.messageBtn.isTransparentBg,
+              onChange: () => handleTransParentBg("messageBtn")
+            }), !styles?.button.messageBtn.isTransparentBg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPalette, {
+              colors: [{
+                name: 'red',
+                color: '#f00'
+              }, {
+                name: 'white',
+                color: '#fff'
+              }, {
+                name: 'blue',
+                color: '#00f'
+              }],
+              value: styles?.button.messageBtn.backgroundColor,
+              onChange: color => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+                draft.styles.button.messageBtn.backgroundColor = color;
+              }))
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+          title: "Follow Button",
+          initialOpen: false
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {

@@ -122,11 +122,11 @@ const ProfileCard = ({
           href: messageBtn?.url || "#",
           target: "_blank",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "primary",
+            className: "message",
             children: messageBtn.txt || ""
           })
         }), options?.isShowFollowBtn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "primary ghost",
+          className: "follow",
           onClick: handleFollow,
           children: isFollowing ? "Following" : "Follow"
         })]
@@ -167,7 +167,8 @@ const Style = ({
 }) => {
   const {
     cardContainer,
-    avatar
+    avatar,
+    button
   } = styles || {};
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("style", {
     dangerouslySetInnerHTML: {
@@ -202,6 +203,31 @@ const Style = ({
             
             }
                 
+
+        button{
+	            font-family: ${button.fontFamily};
+	            font-weight: ${button.fontWeight};
+	            padding-top: ${button.padding.top};
+	            padding-bottom: ${button.padding.bottom};
+	            padding-left: ${button.padding.left};
+	            padding-right: ${button.padding.right};
+                border-radius: ${button.borderRadius}%;
+        }
+            button.message {
+	            background-color:${button.messageBtn.backgroundColor};
+	            color:${button.messageBtn.color};
+                border-width: ${button.messageBtn.border.width};
+                border-style: ${button.messageBtn.border.style};
+                border-color: ${button.messageBtn.border.color};
+            }
+            button.follow {
+	            background-color:${button.followBtn.backgroundColor};
+	            color:${button.followBtn.color};
+                border-width: ${button.followBtn.border.width};
+                border-style: ${button.followBtn.border.style};
+                border-color: ${button.followBtn.border.color};
+            }
+
                 `
     }
   });
