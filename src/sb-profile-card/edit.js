@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps, MediaUpload, AlignmentControl } from '@wordpress/block-editor';
 import './editor.scss';
 import ProfileCard from '../components/common/ProfileCard';
-import { Button, ButtonGroup, ColorPalette, FormToggle, PanelBody, TextControl, ToggleControl, RangeControl, __experimentalUnitControl as UnitControl, Flex, FlexItem, BorderControl } from "@wordpress/components"
+import { Button, ButtonGroup, ColorPalette, FormToggle, PanelBody, TextControl, ToggleControl, RangeControl, __experimentalUnitControl as UnitControl, Flex, FlexItem, BorderControl, BoxControl } from "@wordpress/components"
 import { produce } from "immer"
 import { useState } from 'react';
 import Style from '../components/common/Style';
@@ -204,6 +204,14 @@ export default function Edit({ attributes, setAttributes }) {
 							}))}
 							units={['px']}
 						/>
+					</PanelBody>
+
+					<PanelBody title='padding'>
+						<BoxControl
+							values={styles.avatar.padding}
+							onChange={(newPadding) => setAttributes(produce(attributes, draft => {
+								draft.styles.avatar.padding = newPadding
+							}))} />
 					</PanelBody>
 
 					<PanelBody title='Border' initialOpen={false}>

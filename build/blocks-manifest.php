@@ -74,7 +74,12 @@ return array(
 							'style' => 'solid'
 						),
 						'borderRadius' => '50%',
-						'padding' => ' 7px',
+						'padding' => array(
+							'bottom' => 7,
+							'left' => 7,
+							'right' => 7,
+							'top' => 7
+						),
 						'height' => '170px',
 						'width' => '170px',
 						'objectFit' => 'fill'

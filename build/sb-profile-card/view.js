@@ -193,7 +193,10 @@ const Style = ({
                 border-style: ${avatar.border.style};
                 border-color: ${avatar.border.color};
 	            border-radius: ${avatar.borderRadius}%;
-	            padding: ${avatar.padding};
+	            padding-top: ${avatar.padding.top}px;
+	            padding-bottom: ${avatar.padding.bottom}px;
+	            padding-left: ${avatar.padding.left}px;
+	            padding-right: ${avatar.padding.right}px;
 	            height: ${avatar.height};
 	            width: ${avatar.width};
 	            object-fit: ${avatar.objectFit};
