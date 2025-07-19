@@ -233,15 +233,33 @@ const Style = ({
              .skills {
 	            background-color: ${skill.container.backgroundColor};
 	            text-align:${skill.container.textAlign};
-	             padding-top: ${skill.container.padding.top};
+	            padding-top: ${skill.container.padding.top};
 	            padding-bottom: ${skill.container.padding.bottom};
 	            padding-left: ${skill.container.padding.left};
 	            padding-right: ${skill.container.padding.right};
 	            margin-top:${skill.container.margin.top} ;
+               
+                }
+
+
+                .skills ul li {
+                        border-width: ${skill.listItem.border.width};
+                        border-style: ${skill.listItem.border.style};
+                        border-color: ${skill.listItem.border.color};
+	                    border-radius: ${skill.listItem.borderRadius}%;
+	                    display: ${skill.listItem.display};
+	                    font-size: ${skill.listItem.fontSize};
+	                    margin-top: ${skill.listItem.margin.top};
+	                    margin-bottom: ${skill.listItem.margin.bottom};
+	                    margin-left: ${skill.listItem.margin.left};
+	                    margin-right: ${skill.listItem.margin.right};
+                        padding-top: ${skill.listItem.padding.top};
+	                    padding-bottom: ${skill.listItem.padding.bottom};
+	                    padding-left: ${skill.listItem.padding.left};
+	                    padding-right: ${skill.listItem.padding.right};
+	                   
+
 }
-
-
-
 
                 `
     }

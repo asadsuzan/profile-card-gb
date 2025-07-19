@@ -133,6 +133,28 @@ return array(
 								'top' => '30px'
 							),
 							'textAlign' => 'left'
+						),
+						'listItem' => array(
+							'border' => array(
+								'width' => '1px',
+								'color' => '#2D2747',
+								'style' => 'solid'
+							),
+							'borderRadius' => 2,
+							'display' => 'inline-block',
+							'fontSize' => '12px',
+							'margin' => array(
+								'bottom' => '7px',
+								'left' => ' 0px',
+								'right' => '7px',
+								'top' => '0px'
+							),
+							'padding' => array(
+								'bottom' => '7px',
+								'left' => '7px',
+								'right' => '7px',
+								'top' => '7px'
+							)
 						)
 					)
 				)

@@ -409,6 +409,7 @@ export default function Edit({ attributes, setAttributes }) {
 								draft.styles.skill.container.margin = margin
 							}))}
 						/>
+						<p>Text Align</p>
 						<Flex align="center" gap="8px">
 							<FlexItem>
 								<AlignmentControl
@@ -435,6 +436,26 @@ export default function Edit({ attributes, setAttributes }) {
 								</span>
 							</FlexItem>
 						</Flex>
+					</PanelBody>
+					<PanelBody title="List Item">
+						<p>Border styles</p>
+						<BorderControl value={styles.skill.listItem.border}
+
+							onChange={(newBorderStyle) => setAttributes(produce(attributes, draft => {
+								draft.styles.skill.listItem.border = newBorderStyle
+							}))}
+
+
+
+						/>
+						<p>Radius</p>
+						<RangeControl
+							value={styles.skill.listItem.borderRadius}
+
+							onChange={(radius) => setAttributes(produce(attributes, draft => {
+								draft.styles.skill.listItem.borderRadius = radius
+							}))}
+						/>
 					</PanelBody>
 				</PanelBody>
 
