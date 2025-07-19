@@ -30,17 +30,22 @@ const ProfileCard = ({ options, isBackEnd = true, profile = {}, onNameChange, on
             }
 
             <div className="buttons">
-                <a href={messageBtn?.url || "#"} target='_blank'>
-                    <button className="primary">
-                        {messageBtn.txt || ""}
-                    </button>
-                </a>
+                {
+                    options?.isShowMessageBtn && <a href={messageBtn?.url || "#"} target='_blank'>
+                        <button className="primary">
+                            {messageBtn.txt || ""}
+                        </button>
+                    </a>
+                }
 
-                <button className="primary ghost" onClick={handleFollow}>
-                    {
-                        isFollowing ? "Following" : "Follow"
-                    }
-                </button>
+
+                {
+                    options?.isShowFollowBtn && <button className="primary ghost" onClick={handleFollow}>
+                        {
+                            isFollowing ? "Following" : "Follow"
+                        }
+                    </button>
+                }
             </div>
             <div className="skills">
                 <h6>Skills</h6>

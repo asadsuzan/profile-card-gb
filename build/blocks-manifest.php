@@ -50,7 +50,9 @@ return array(
 			'options' => array(
 				'type' => 'object',
 				'default' => array(
-					'isShowBadge' => true
+					'isShowBadge' => true,
+					'isShowMessageBtn' => true,
+					'isShowFollowBtn' => true
 				)
 			),
 			'styles' => array(

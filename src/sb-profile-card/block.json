@@ -45,7 +45,9 @@
 		"options": {
 			"type": "object",
 			"default": {
-				"isShowBadge": true
+				"isShowBadge": true,
+				"isShowMessageBtn": true,
+				"isShowFollowBtn": true
 			}
 		},
 		"styles": {

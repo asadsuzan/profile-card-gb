@@ -1326,14 +1326,14 @@ const ProfileCard = ({
         }
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "buttons",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        children: [options?.isShowMessageBtn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
           href: messageBtn?.url || "#",
           target: "_blank",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             className: "primary",
             children: messageBtn.txt || ""
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        }), options?.isShowFollowBtn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           className: "primary ghost",
           onClick: handleFollow,
           children: isFollowing ? "Following" : "Follow"
@@ -1456,7 +1456,7 @@ const SbRichText = ({
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true}},"styles":{"type":"object","default":{"cardContainer":{"backgroundColor":" #231E39","borderRadius":5,"boxShadow":" 0px 10px 20px -10px rgba(0,0,0,0.75)","color":"#B3B8CD","paddingTop":"30px","position":"relative","width":"350px","maxWidth":"100%","textAlign":"center"},"avatar":{"border":{"width":"1px","color":"#03BFCB","style":"solid"},"borderRadius":50,"padding":{"bottom":7,"left":7,"right":7,"top":7},"height":"170px","width":"170px","objectFit":"fill"}}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/sb-profile-card","version":"0.1.0","title":"profile card block","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false,"align":["center","full","wide","left","right"]},"attributes":{"profile":{"type":"object","default":{"badgeTxt":"pro","imgUrl":"","name":"jon does","country":"New York","title":"User interface designer and front-end developer","messageBtn":{"txt":"message","url":"#"},"followBtn":{"txt":"Follow","url":""},"skills":["UI / UX","Front End Development","HTML"]}},"options":{"type":"object","default":{"isShowBadge":true,"isShowMessageBtn":true,"isShowFollowBtn":true}},"styles":{"type":"object","default":{"cardContainer":{"backgroundColor":" #231E39","borderRadius":5,"boxShadow":" 0px 10px 20px -10px rgba(0,0,0,0.75)","color":"#B3B8CD","paddingTop":"30px","position":"relative","width":"350px","maxWidth":"100%","textAlign":"center"},"avatar":{"border":{"width":"1px","color":"#03BFCB","style":"solid"},"borderRadius":50,"padding":{"bottom":7,"left":7,"right":7,"top":7},"height":"170px","width":"170px","objectFit":"fill"}}}},"textdomain":"sb-profile-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -1586,6 +1586,18 @@ function Edit({
   const handleShowBadge = () => {
     setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
       draft.options.isShowBadge = draft.options.isShowBadge ? false : true;
+    }));
+  };
+  // handle show message button 
+  const handleShowMsgBtn = () => {
+    setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+      draft.options.isShowMessageBtn = draft.options.isShowMessageBtn ? false : true;
+    }));
+  };
+  // handle show follow button 
+  const handleShowFollowBtn = () => {
+    setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+      draft.options.isShowFollowBtn = draft.options.isShowFollowBtn ? false : true;
     }));
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
@@ -1835,13 +1847,21 @@ function Edit({
           onClick: handleAddNewSkill,
           children: "Add skill"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
         title: "options",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
           label: "show badge",
           checked: options.isShowBadge,
           onChange: handleShowBadge
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+          label: "show message button",
+          checked: options.isShowMessageBtn,
+          onChange: handleShowMsgBtn
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+          label: "show Follow button",
+          checked: options.isShowFollowBtn,
+          onChange: handleShowFollowBtn
+        })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({

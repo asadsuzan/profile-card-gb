@@ -100,6 +100,18 @@ export default function Edit({ attributes, setAttributes }) {
 			draft.options.isShowBadge = draft.options.isShowBadge ? false : true
 		}))
 	}
+	// handle show message button 
+	const handleShowMsgBtn = () => {
+		setAttributes(produce(attributes, draft => {
+			draft.options.isShowMessageBtn = draft.options.isShowMessageBtn ? false : true
+		}))
+	}
+	// handle show follow button 
+	const handleShowFollowBtn = () => {
+		setAttributes(produce(attributes, draft => {
+			draft.options.isShowFollowBtn = draft.options.isShowFollowBtn ? false : true
+		}))
+	}
 	return (
 		<>
 			{/* // settings  */}
@@ -307,6 +319,8 @@ export default function Edit({ attributes, setAttributes }) {
 				{/* options  */}
 				<PanelBody title='options'>
 					<ToggleControl label="show badge" checked={options.isShowBadge} onChange={handleShowBadge} />
+					<ToggleControl label="show message button" checked={options.isShowMessageBtn} onChange={handleShowMsgBtn} />
+					<ToggleControl label="show Follow button" checked={options.isShowFollowBtn} onChange={handleShowFollowBtn} />
 				</PanelBody>
 			</InspectorControls >
 
