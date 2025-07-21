@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps, MediaUpload, AlignmentControl } from '@wordpress/block-editor';
 import './editor.scss';
 import ProfileCard from '../components/common/ProfileCard';
-import { Button, ButtonGroup, ColorPalette, FormToggle, PanelBody, TextControl, ToggleControl, RangeControl, __experimentalUnitControl as UnitControl, Flex, FlexItem, BorderControl, BoxControl } from "@wordpress/components"
+import { Button, ButtonGroup, ColorPalette, FormToggle, PanelBody, TextControl, ToggleControl, RangeControl, __experimentalUnitControl as UnitControl, Flex, FlexItem, BorderControl, BoxControl, FontSizePicker } from "@wordpress/components"
 import { produce } from "immer"
 import { useState } from 'react';
 import Style from '../components/common/Style';
@@ -455,6 +455,21 @@ export default function Edit({ attributes, setAttributes }) {
 							onChange={(radius) => setAttributes(produce(attributes, draft => {
 								draft.styles.skill.listItem.borderRadius = radius
 							}))}
+						/>
+						<p>Font Size</p>
+						<FontSizePicker fontSizes={[
+							{ name: __('Small'), slug: 'small', size: 12 },
+							{ name: __('Normal'), slug: 'normal', size: 16 },
+							{ name: __('Large'), slug: 'large', size: 20 },
+							{ name: __('Huge'), slug: 'huge', size: 24 },
+						]}
+
+							value={styles.skill.listItem.fontSize}
+
+							onChange={(size) => setAttributes(produce(attributes, draft => {
+								draft.styles.skill.listItem.fontSize = size
+							}))}
+
 						/>
 					</PanelBody>
 				</PanelBody>

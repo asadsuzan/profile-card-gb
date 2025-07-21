@@ -2019,6 +2019,30 @@ function Edit({
             onChange: radius => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
               draft.styles.skill.listItem.borderRadius = radius;
             }))
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+            children: "Font Size"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.FontSizePicker, {
+            fontSizes: [{
+              name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Small'),
+              slug: 'small',
+              size: 12
+            }, {
+              name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Normal'),
+              slug: 'normal',
+              size: 16
+            }, {
+              name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Large'),
+              slug: 'large',
+              size: 20
+            }, {
+              name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Huge'),
+              slug: 'huge',
+              size: 24
+            }],
+            value: styles.skill.listItem.fontSize,
+            onChange: size => setAttributes((0,immer__WEBPACK_IMPORTED_MODULE_5__.produce)(attributes, draft => {
+              draft.styles.skill.listItem.fontSize = size;
+            }))
           })]
         })]
       })]
